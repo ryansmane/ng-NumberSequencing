@@ -1,6 +1,7 @@
 import { Component, OnInit } from "@angular/core";
 import { ListService } from "../services/ListService.service";
 import { FirstTenPosIntegers } from "../services/FirstTenPosIntegers.s";
+import { FibonacciService } from '../services/FibonacciService.s'
 @Component({
   selector: "app-list",
   template: `
@@ -10,8 +11,10 @@ import { FirstTenPosIntegers } from "../services/FirstTenPosIntegers.s";
         <p class='s-sample'>{{ sequence.sample }}</p>
 
         <div class='desc-box'>
-            <p>Algorithm:</p>
+            <p [style.color]='"#552600"' [style.text-decoration]='"underline"'>Algorithm:</p>
             <p class='algo'>{{ sequence.algo }}
+            <p [style.color]='"#552600"' [style.text-decoration]='"underline"'>Description:</p>
+            <p class='algo'>{{ sequence.description }}
         </div>
       </div>
     </div>
@@ -22,22 +25,24 @@ export class List implements OnInit {
   sequences: any[];
 
   constructor(
-    public firstTenPosIntegers: FirstTenPosIntegers,
-    private listService: ListService
+    private firstTenPosIntegers: FirstTenPosIntegers,
+    private listService: ListService,
+    private fibonacciService: FibonacciService
+
   ) {}
 
   ngOnInit() {
     this.listService.addToList(
-      "The First Ten",
+      "The Positive Integers",
       this.firstTenPosIntegers,
-      10,
-      "The First Ten Positive Integers"
+      15,
+      "Self-explanatory."
     );
     this.listService.addToList(
-      "The First Ten",
-      this.firstTenPosIntegers,
-      10,
-      "The First Ten Positive Integers"
+      "The Fibonacci Numbers",
+      this.fibonacciService,
+      15,
+      "As found by f(n+2) = f(n+1) + f(n) with f(0) = 0, f(1) = 1."
     );
     this.sequences = this.listService.getList();
     console.log("list");
