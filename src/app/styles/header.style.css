@@ -1,4 +1,8 @@
 h1 {
+  border-bottom: 3px dashed #552600;
+  border-top: 3px dashed #552600;
+  border-left: 3px dashed #552600;
+  padding: 16px 48px;
   position: absolute;
   text-align: center;
   top: 50%;
@@ -10,7 +14,7 @@ h1 {
 }
 
 .header-div {
-  border: 1px solid #552600;
+  border: 3px solid #552600;
   position: relative;
   height: 25vh;
   background-color: #dcf1a1;

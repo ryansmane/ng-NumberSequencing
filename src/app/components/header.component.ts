@@ -3,7 +3,7 @@ import { Component, OnInit } from '@angular/core';
     selector: 'app-header',
     template: `
     <div class='header-div'>
-    <h1>...Tranquil Sequences...</h1>
+    <h1>Tranquil Sequences</h1>
      
     </div>
     `,
